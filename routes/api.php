@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,20 @@ Route::middleware(['auth:api'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
+// Listar todos
+Route::get('/fornecedores', [FornecedorController::class, 'index']);
+
+// Mostrar um específico
+Route::get('/fornecedores/{id}', [FornecedorController::class, 'show']);
+
+// Criar novo
+Route::post('/fornecedores/store', [FornecedorController::class, 'store']);
+
+// Atualizar existente
+Route::put('/fornecedores/{id}', [FornecedorController::class, 'update']);
+
+// Deletar
+Route::delete('/fornecedores/{id}', [FornecedorController::class, 'destroy']);
 
 //CATEGORIAS
 Route::get('/categorias', [CategoriaController::class, 'index']);

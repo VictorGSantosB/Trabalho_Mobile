@@ -9,18 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('fornecedores', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome_fantasia');
-            $table->char('cnpj', 14)->unique();
-            $table->string('email')->unique();
-            $table->string('telefone')->nullable();
-            $table->string('endereco')->nullable();
-            $table->timestamps();
-        });
-    }
+        public function up(): void
+        {
+            Schema::create('fornecedores', function (Blueprint $table) {
+                $table->id();
+                $table->string('nome');
+                $table->char('cnpj', 14)->unique();
+                $table->string('email')->unique();
+                $table->timestamps();
+            });
+        }
 
     /**
      * Reverse the migrations.
